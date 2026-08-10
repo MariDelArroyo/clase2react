@@ -1,0 +1,10 @@
+#principal{
+    background-color:brown
+}
+h1,p {
+    color: rgb(127, 159, 255);
+    background-color: black;
+}
+p{
+    background-color:rgb(255, 0, 115);
+}
