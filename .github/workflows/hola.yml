@@ -9,6 +9,8 @@ jobs:
     - name: saludar
       run: echo "Hola Mundo"
     - name: Descargar Codigo
-      uses: actions/checkou@v4
+      uses: actions/checkout@v4
     - name: En que carpeta estoy
       run: pwd
+    - name: Listado de archivos
+      run: ls -la
