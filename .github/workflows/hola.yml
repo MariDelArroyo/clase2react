@@ -18,3 +18,5 @@ jobs:
       uses: actions/setup-node@v4
     - name: Verificar node
       run: node --version
+    - name: verificar npm
+      run: npm --version
