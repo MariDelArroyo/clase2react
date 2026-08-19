@@ -14,5 +14,7 @@ jobs:
       run: pwd
     - name: Listado de archivos
       run: ls -la
-    - name: Descargar node
-      run: actions/setup-node@v4
+    - name: Instalar node
+      uses: actions/setup-node@v4
+    - name: Verificar node
+      run: node --version
