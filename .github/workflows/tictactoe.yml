@@ -18,4 +18,5 @@ jobs:
 
       - name: Compilar el proyecto
         working-directory: tic-tac-toe
-        run: npm run build 
+        run: vite build
+      
