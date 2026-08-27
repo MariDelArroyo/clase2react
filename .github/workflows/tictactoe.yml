@@ -1,0 +1,21 @@
+name: tictactoe
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  hola:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar Codigo
+        uses: actions/checkout@v4
+      - name: Instalar node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Instalar dependencias
+        working-directory: tic-tac-toe
+        run: npm i
+
+      - name: Compilar el proyecto
+        working-directory: tic-tac-toe
+        run: npm run build 
