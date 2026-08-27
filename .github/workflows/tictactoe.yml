@@ -20,3 +20,8 @@ jobs:
         working-directory: tic-tac-toe
         run: npx vite build
       
+      - name: Guardar Zip
+        uses: actions/upload-artifact@v3
+        with:
+          name: tictactoe
+          path: tic-tac-toe/dist
