@@ -2,6 +2,10 @@ name: Contador
 on:
   push:
   workflow_dispatch:
+
+permissions:
+  id-token: write
+
 jobs:
   hola:
     runs-on: ubuntu-latest
@@ -27,3 +31,7 @@ jobs:
           path: clase18/contador/dist
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
+      - name: Subir dist
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: clase18/contador/dist
