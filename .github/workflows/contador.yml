@@ -5,6 +5,8 @@ on:
 
 permissions:
   id-token: write
+  contents: read
+  pages: write
 
 jobs:
   hola:
@@ -35,3 +37,5 @@ jobs:
         uses: actions/upload-pages-artifact@v4
         with:
           path: clase18/contador/dist
+      - name: Publicar en GitHub Pages
+        uses: actions/deploy-pages@v1
