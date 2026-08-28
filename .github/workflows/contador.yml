@@ -1,6 +1,9 @@
-name: Contador
+name: contador
+
 on:
   push:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -9,33 +12,33 @@ permissions:
   pages: write
 
 jobs:
-  hola:
+  run_vite:
     runs-on: ubuntu-latest
-    steps:
-      - name: Descargar Codigo
-        uses: actions/checkout@v4
-      - name: Instalar node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
-      - name: Instalar dependencias
-        working-directory: clase18/contador
-        run: npm i
 
-      - name: Compilar el proyecto
+    steps:
+      - name: Download Code
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "24"
+
+      - name: Install Dependencies
+        working-directory: clase18/contador
+        run: npm install
+
+      - name: Run Vite Build
         working-directory: clase18/contador
         run: npx vite build
-      
-      - name: Guardar Zip
-        uses: actions/upload-pages-artifact@v4
-        with:
-          name: contador
-          path: clase18/contador/dist
+
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
-      - name: Subir dist
+
+      - name: Guardar artefacto
         uses: actions/upload-pages-artifact@v4
         with:
           path: clase18/contador/dist
-      - name: Publicar en GitHub Pages
-        uses: actions/deploy-pages@v1
+
+      - name: Publicar
+        uses: actions/deploy-pages@v4
