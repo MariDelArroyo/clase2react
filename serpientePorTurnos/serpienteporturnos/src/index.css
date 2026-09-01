@@ -132,6 +132,7 @@ code {
 
 .tablero td.comida {
   background: #f43f5e;
+  border-radius: 50%;
 }
 
 .mensaje-fin {
