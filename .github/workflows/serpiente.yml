@@ -1,0 +1,27 @@
+name: serpiente
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  serpiente:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar Codigo
+        uses: actions/checkout@v4
+      - name: Instalar node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Instalar dependencias
+        working-directory: serpientePorTurnos/serpienteporturnos
+        run: npm i
+
+      - name: Compilar el proyecto
+        working-directory: serpientePorTurnos/serpienteporturnos
+        run: npx vite build
+
+      - name: Guardar Zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: serpiente
+          path: serpientePorTurnos/serpienteporturnos/dist
